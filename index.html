@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Understanding the Gradient</title>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+    <style>
+        /* Basic styling for a clean layout */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fff;
+            color: #333;
+            font-size: 150%; /* Increased font size to 150% */
+            margin: 0;
+            padding: 20px;
+        }
+        .lesson-container {
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            background-color: #fff; /* Set container background to white */
+            border-radius: 8px;
+        }
+        .image-placeholder {
+            width: 100%;
+            height: auto;
+            border-radius: 4px;
+            margin-bottom: 20px;
+        }
+        .continue-button {
+            padding: 10px;
+            margin-top: 15px;
+            border: none;
+            color: #fff;
+            background-color: #000;
+            border-radius: 20px; /* More rounded corners */
+            font-weight: bold;
+            cursor: pointer;
+            text-align: center;
+            display: inline-block;
+            font-size: 0.9em; /* Smaller font size for Continue text */
+        }
+        .hidden-section {
+            display: none;
+            margin-top: 30px; /* Adds space between sections */
+        }
+        .spacer {
+            margin: 80px 0; /* Increased spacing between sections */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="lesson-container">
+        <section>
+            <p>First, let's understand the concept of a gradient.</p>
+            <p>In simple terms, it's like a compass pointing in the direction of the steepest ascent of a function.</p>
+            <img src="images/gradient_descent_example.jpg" alt="Gradient Descent Example" class="image-placeholder">
+            <div class="continue-button" onclick="showNextSection('math-section')">Continue</div>
+        </section>
+
+        <div class="spacer"></div> <!-- Spacer between sections -->
+
+        <section id="math-section" class="hidden-section">
+            <p>Mathematically, for a function \( f(x) \) in one dimension, the gradient is the derivative \( f′(x) \).</p>
+            <img src="images/gradient_descent_example.jpg" alt="Gradient Descent Example" class="image-placeholder">
+            <div class="continue-button" onclick="showNextSection('multi-dimension-section')">Continue</div>
+        </section>
+
+        <div class="spacer"></div> <!-- Spacer between sections -->
+
+        <section id="multi-dimension-section" class="hidden-section">
+            <p>In multiple dimensions, the gradient is a vector of partial derivatives:</p>
+            <p>
+                \[
+                \nabla f(x) = \left( \frac{\partial f}{\partial x_1}, \frac{\partial f}{\partial x_2}, \dots, \frac{\partial f}{\partial x_n} \right)
+                \]
+            </p>
+            <p>This vector points in the direction where the function increases the most.</p>
+            <img src="images/gradient_descent_example.jpg" alt="Gradient Descent Example" class="image-placeholder">
+        </section>
+    </div>
+
+    <script>
+        function showNextSection(sectionId) {
+            // Hide the clicked button
+            event.target.style.display = 'none';
+            
+            // Show the next section
+            const nextSection = document.getElementById(sectionId);
+            if (nextSection) {
+                nextSection.style.display = 'block';
+                // Smooth scroll to the revealed section
+                nextSection.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+    </script>
+
+</body>
+</html>
